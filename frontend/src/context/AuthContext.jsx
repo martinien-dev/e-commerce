@@ -45,9 +45,15 @@ export function AuthProvider({ children }) {
       if (response.error) {
         return { error: response.error };
       }
-      setUser(response);
+      const userData = {
+        id: response.userId,
+        firstName: response.firstName,
+        lastName: response.lastName,
+        email: response.email
+      };
+      setUser(userData);
       setAuthenticated(true);
-      localStorage.setItem('user', JSON.stringify(response));
+      localStorage.setItem('user', JSON.stringify(userData));
       return { success: true };
     } catch (error) {
       return { error: 'Registration failed' };

@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { authAPI } from '../api';
+import { useAuth } from '../context/AuthContext';
 import './Login.css';
 
 export default function Login() {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
+  const { login, register } = useAuth();
   const [lang, setLang] = useState(i18n.language || 'en');
   const [activeTab, setActiveTab] = useState('login');
   const [error, setError] = useState('');
@@ -45,13 +46,11 @@ export default function Login() {
     setError('');
 
     try {
-      const response = await authAPI.login(loginData.email, loginData.password);
+      const result = await login(loginData.email, loginData.password);
       
-      if (response.error) {
-        setError(response.error);
+      if (result.error) {
+        setError(result.error);
       } else {
-        // Store user info in localStorage
-        localStorage.setItem('user', JSON.stringify(response.user));
         navigate('/home');
       }
     } catch (err) {
@@ -67,7 +66,7 @@ export default function Login() {
     setError('');
 
     try {
-      const response = await authAPI.register(
+      const result = await register(
         signupData.firstName,
         signupData.lastName,
         signupData.email,
@@ -75,12 +74,9 @@ export default function Login() {
         signupData.confirmPassword
       );
 
-      if (response.error) {
-        setError(response.error);
+      if (result.error) {
+        setError(result.error);
       } else {
-        // Store user info in localStorage
-        localStorage.setItem('user', JSON.stringify(response));
-        // Switch to login tab and clear form
         setLoginData({
           email: signupData.email,
           password: ''

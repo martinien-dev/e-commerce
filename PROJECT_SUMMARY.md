@@ -34,7 +34,7 @@
 │  │  (React)     │          HTTP/REST           │ (Express)    │ │
 │  │              │◄────────────────────────────►│              │ │
 │  ├──────────────┤                              ├──────────────┤ │
-│  │ Login Page   │                              │ Auth Routes  │ │
+|  │ Login Page   │                              │ Auth Routes  │ │
 │  │ (Sign Up)    │                              │ Product API  │ │
 │  │ Home Page    │                              │ Cart API     │ │
 │  │ Store        │                              │ Order API    │ │

@@ -203,7 +203,7 @@ export default function About() {
               <span className="contact-icon">📞</span>
               <div>
                 <strong>Phone</strong><br />
-                +1 (555) 123-4567
+                +250 792 650 912
               </div>
             </div>
             <div className="contact-item">

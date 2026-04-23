@@ -10,13 +10,20 @@ const PORT = 5000;
 const SALT_ROUNDS = 10;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:5174',
+  credentials: true
+}));
 app.use(bodyParser.json());
 app.use(session({
   secret: 'aura_commerce_secret_key',
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: false, httpOnly: true }
+  cookie: {
+    secure: false,
+    httpOnly: true,
+    sameSite: 'lax'
+  }
 }));
 
 // Database connection
