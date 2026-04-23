@@ -1,0 +1,26 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "setup-db": "mysql -u root < database_setup.sql",
+    "init-db": "mysql -u root -e \"CREATE DATABASE IF NOT EXISTS aura_commerce;\" && mysql -u root aura_commerce < database_setup.sql"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Backend API for Aura Commerce e-commerce platform",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^2.2.2",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "express-session": "^1.17.3",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

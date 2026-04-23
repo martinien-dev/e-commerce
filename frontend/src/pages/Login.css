@@ -1,0 +1,217 @@
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-shape {
+  position: absolute;
+  filter: blur(100px);
+  z-index: 0;
+  border-radius: 50%;
+}
+
+.shape-1 {
+  width: 500px;
+  height: 500px;
+  background: var(--primary-color);
+  top: -100px;
+  left: -100px;
+  opacity: 0.3;
+}
+
+.shape-2 {
+  width: 400px;
+  height: 400px;
+  background: var(--secondary-color);
+  bottom: -50px;
+  right: -50px;
+  opacity: 0.2;
+}
+
+.login-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+  padding: 3rem 2rem;
+  margin: 1.5rem;
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.login-header h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.login-header p {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.login-header .subtitle {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-group label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-left: 0.25rem;
+}
+
+.input-group input {
+  padding: 0.875rem 1.25rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.input-group input:focus {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.login-btn {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  font-weight: 600;
+  font-size: 1.05rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4);
+}
+
+.login-footer {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.lang-toggle {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.lang-toggle:hover {
+  color: var(--text-primary);
+}
+
+/* Tab Navigation Styles */
+.auth-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.35rem;
+  border-radius: 12px;
+}
+
+.tab-button {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.tab-button.active {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  box-shadow: 0 4px 15px rgba(236, 72, 153, 0.2);
+}
+
+.tab-button:hover:not(.active) {
+  color: var(--text-primary);
+}
+
+/* Error Message */
+.error-message {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  color: #fca5a5;
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  text-align: center;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Input Row for Side-by-Side Inputs */
+.input-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 480px) {
+  .input-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Disabled Button State */
+.login-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.login-btn:disabled:hover {
+  transform: none;
+  box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+}
+
