@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import React, { createContext, useState, useEffect, useCallback } from 'react';
 import { authAPI } from '../api';
 
@@ -16,8 +17,8 @@ export function AuthProvider({ children }) {
         const userData = JSON.parse(savedUser);
         setUser(userData);
         setAuthenticated(true);
-      } catch (error) {
-        console.error('Error loading user from localStorage:', error);
+      } catch {
+        console.error('Error loading user from localStorage');
         localStorage.removeItem('user');
       }
     }
@@ -34,7 +35,7 @@ export function AuthProvider({ children }) {
       setAuthenticated(true);
       localStorage.setItem('user', JSON.stringify(response.user));
       return { success: true };
-    } catch (error) {
+    } catch {
       return { error: 'Login failed' };
     }
   }, []);
@@ -55,7 +56,7 @@ export function AuthProvider({ children }) {
       setAuthenticated(true);
       localStorage.setItem('user', JSON.stringify(userData));
       return { success: true };
-    } catch (error) {
+    } catch {
       return { error: 'Registration failed' };
     }
   }, []);
@@ -67,7 +68,7 @@ export function AuthProvider({ children }) {
       setAuthenticated(false);
       localStorage.removeItem('user');
       return { success: true };
-    } catch (error) {
+    } catch {
       return { error: 'Logout failed' };
     }
   }, []);

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { productAPI, cartAPI } from '../api';
@@ -15,7 +14,6 @@ import hoodieImg from '../assets/hoodie.jpg';
 import walletImg from '../assets/wallet.jpg';
 
 export default function Store() {
-  const { t } = useTranslation();
   const navigate = useNavigate();
   const { authenticated } = useAuth();
   const [searchTerm, setSearchTerm] = useState('');
@@ -23,7 +21,7 @@ export default function Store() {
   const [sortBy, setSortBy] = useState('name');
   const [cart, setCart] = useState([]);
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [_loading, setLoading] = useState(true);
 
   const categories = [
     { id: 'All', name: 'All Categories', icon: '🛍️' },

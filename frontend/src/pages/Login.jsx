@@ -53,7 +53,7 @@ export default function Login() {
       } else {
         navigate('/home');
       }
-    } catch (err) {
+    } catch {
       setError('Connection failed. Make sure the backend server is running.');
     } finally {
       setLoading(false);
@@ -91,7 +91,7 @@ export default function Login() {
         alert('Registration successful! Redirecting to home...');
         navigate('/home');
       }
-    } catch (err) {
+    } catch {
       setError('Connection failed. Make sure the backend server is running.');
     } finally {
       setLoading(false);

@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 // Import profile image
 import profileImg from '../assets/profilepic.png';
 
 export default function Profile() {
-  const { t, i18n } = useTranslation();
   const [isEditing, setIsEditing] = useState(false);
   const [showPasswordChange, setShowPasswordChange] = useState(false);
   const [showLanguageMenu, setShowLanguageMenu] = useState(false);

@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 
 // Import profile image
 import profileImg from '../assets/profilepic.png';
@@ -7,7 +6,6 @@ import profileImg from '../assets/profilepic.png';
 import './About.css';
 
 export default function About() {
-  const { t } = useTranslation();
 
   const teamMembers = [
     {
